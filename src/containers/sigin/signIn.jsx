@@ -1,60 +1,41 @@
 import { Button, Form, Input } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as authActions from '../../actions/authActions'
 
-const Signap = (props) => {
+const SignIn = (props) => {
+    const navigate = useNavigate()
   const onFinish = (values) => {
     console.log('Success:', values);
-    props.authActions.signUp(values)
+    props.authActions.signIn(values, navigate)
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
-
+  console.log(props.isAuth)
   return (
+    
     <Form
-      name="basic"
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Username"
-        name="name"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your username!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+    name="basic"
+    labelCol={{
+      span: 8,
+    }}
+    wrapperCol={{
+      span: 16,
+    }}
+    initialValues={{
+      remember: true,
+    }}
+    onFinish={onFinish}
+    onFinishFailed={onFinishFailed}
+    autoComplete="off"
+  >
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
-      >
-        <Input.Password/>
-      </Form.Item>
+      
       <Form.Item
         label="Email"
         name="email"
@@ -69,9 +50,18 @@ const Signap = (props) => {
         <Input/>
       </Form.Item>
 
-  
-        
-     
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your password!',
+          },
+        ]}
+      >
+        <Input.Password/>
+      </Form.Item>
 
       <Form.Item
         wrapperCol={{
@@ -79,19 +69,21 @@ const Signap = (props) => {
           span: 16,
         }}
       >
-        <Button type="primary" htmlType="submit">
-          Submit
+        <Button  type="primary" htmlType="submit">
+          Войти
         </Button>
       </Form.Item>
+      <Link to='/signup'>Регитрация</Link>
     </Form>
   );
 };
 
 const mapStateToProps = (state) => ({
-  isLoading: state.authReducer.isLoading
+  isLoading: state.authReducer.isLoading,
+  isAuth: state.authReducer.isAuth
 })
 const mapDispatchToProps = (dispatch) => ({
   authActions: bindActionCreators(authActions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signap);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
