@@ -7,23 +7,23 @@ const { Header, Content, Footer, Sider } = Layout;
 function Dashboard() {
     return(
         <Layout>
-        <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
-          onBreakpoint={broken => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-        >
+            <Sider
+            breakpoint="lg"
+            collapsedWidth="0"
+            onBreakpoint={broken => {
+                console.log(broken);
+            }}
+            onCollapse={(collapsed, type) => {
+                console.log(collapsed, type);
+            }}
+            >
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-                <Link to={'restaurants'}>Restaurant</Link>
+                <Link to={'kitchens'}>Kitchens</Link>
             </Menu.Item>
             <Menu.Item key="2">
-                <Link to={'kitchens'}>Kitchens</Link>
+                <Link to={'restaurants'}>Restaurant</Link>
             </Menu.Item>
           </Menu>
         </Sider>

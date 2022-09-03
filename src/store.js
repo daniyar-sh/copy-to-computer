@@ -2,8 +2,7 @@ import { applyMiddleware, createStore } from "redux";
 import { createLogger } from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import reducer from "./reducers";
-import rootSaga from "./saga";
-
+import rootSaga from "./sagas";
 
 const logger = createLogger({
     collapsed: true

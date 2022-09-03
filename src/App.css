@@ -1,27 +1,77 @@
 
-
-.wrapperProducts {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.products-block {
-  margin: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 966px;
-  margin-bottom: 100px;
-}
-
-.h1 {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
 .title {
   font-size: 16px;
   font-weight: 400;
+}
+
+.navWrapper {
+  display: flex;
+  justify-content: center;
+ 
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  margin: 10px;
+}
+
+.navP{
+  cursor: pointer;
+  padding: 0.5rem 0;
+  letter-spacing: 1.25px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+
+.navInput {
+  width: 170px;
+  height: 25px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.wrapperProducts {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.products-block {
+  display: flex;
+}
+
+.left {
+  margin-right: 20px;
+  cursor: pointer;
+  color:#808080;
+}
+
+.mainImg {
+  width: 150px;
+  height: 180px;
+  margin-right: 25px;
+}
+.h1 {
+  margin-bottom: 25px;
+}
+
+.wrapperLeft {
+  width: 20%;
+  background-color: #f8f8f8;
+}
+.productTitle {
+  margin: 0 30px;
+}
+
+.reiting {
+  font-size: 2.5em;
+  color: #8bbf52;
+  margin: 0;
+  padding: 0;
 }
